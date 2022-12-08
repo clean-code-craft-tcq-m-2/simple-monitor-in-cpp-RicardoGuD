@@ -1,7 +1,8 @@
 #ifndef GLOBALIZATIONSTRINGS_H
 #define GLOBALIZATIONSTRINGS_H
 /*--------------------language used------------------*/
-#define ENGLISH
+//we can define the language using parameter -D <lenguageDefinition>. Example: g++ -Wall -Wextra -D GERMAN -o checkerTest *.cpp
+//#define ENGLISH
 //#define GERMAN
 //#define SPANISH
 /*----------------------------------------------------*/
@@ -20,7 +21,7 @@ static const globalizationString glbStr_valWithinValidRange = " value is within 
 
 static const std::map<batteryParamType, std::string> glbStr_paramType{
     {batteryParamType::Temperature,   "Temperature"},
-    {batteryParamType::StateOfCharge,"State Of Charge"},
+    {batteryParamType::StateOfCharge,"State of Charge"},
     {batteryParamType::ChargeRate,    "Charge Rate"}
 };
 #endif//ENGLISH
