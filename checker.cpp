@@ -1,22 +1,26 @@
 #include <assert.h>
-#include <iostream>
-using namespace std;
-
-bool batteryIsOk(float temperature, float soc, float chargeRate) {
-  if(temperature < 0 || temperature > 45) {
-    cout << "Temperature out of range!\n";
-    return false;
-  } else if(soc < 20 || soc > 80) {
-    cout << "State of Charge out of range!\n";
-    return false;
-  } else if(chargeRate > 0.8) {
-    cout << "Charge Rate out of range!\n";
-    return false;
-  }
-  return true;
-}
+#include "Battery.h"
+#include "checkerTest.h"
 
 int main() {
-  assert(batteryIsOk(25, 70, 0.7) == true);
-  assert(batteryIsOk(50, 85, 0) == false);
+  TEST_TemperatureValues();
+  TEST_StateOfChargeValues();
+  TEST_ChargeRateValues();
+  TEST_BatteryOK();
+
+  TEST_warningLevel_NoWarningsEnabled();
+  TEST_warningLevel_allWarningsEnabled();
+  TEST_warningLevel_temperatureWarningEnabled();
+  TEST_warningLevel_stateofChargeWarningEnabled();
+  TEST_warningLevel_chargeRateWarningEnabled();
+  #ifdef ENGLISH
+  TEST_Language_English_Normal();
+  TEST_Language_English_Warning();
+  TEST_Language_English_Error();
+  #endif
+   #ifdef GERMAN
+  TEST_Language_German_Normal();
+  TEST_Language_German_Warning();
+  TEST_Language_German_Error();
+  #endif
 }
